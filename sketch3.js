@@ -20,23 +20,6 @@ function draw() {
   }
 
 
-  /*if(frameCount % 50 == 0){
-    x_bolhas = x_robalo;
-    y_bolhas = y_robalo;
-
-    for (let i = 0; i < 10; i++) {
-      // Calculate the frame range for the circle to be visible
-      let startFrame = frameCount - i;
-      let endFrame = startFrame + 10;
-
-      // Draw the circle only if the current frame is within the specified range
-      if (frameCount >= startFrame && frameCount < endFrame) {
-        fill(255)
-        circle(x_bolhas, y_bolhas, 20);
-      }
-  }*/
-
-
   if (arrowShot) {
     // Move the arrow (moving point) in the direction of the arrow
     let direction = p5.Vector.sub(fixedPoint, movingPoint); // Reverse the direction vector
@@ -59,12 +42,12 @@ function draw() {
     //check collision
     if (vel > 0 && movingPoint.x < x_robalo && movingPoint.x > x_robalo - robalo_width && movingPoint.y < y_robalo + robalo_height) {
       arrowShot = false;
-      robalo = false;
+      hideRobalo();
       document.getElementById('para').innerHTML = 'Parabens apanhaste o robalo!';
     }
     if (vel < 0 && movingPoint.x > x_robalo && movingPoint.x < x_robalo + robalo_width && movingPoint.y < y_robalo + robalo_height) {
       arrowShot = false;
-      robalo = false;
+      hideRobalo();
       document.getElementById('para').innerHTML = 'Parabens apanhaste o robalo!';
     }
 
@@ -112,22 +95,24 @@ function drawArrowhead(p1, p2, size) {
 }
 
 
-//Carregar a imagem do robalo
+let isRobaloHidden = false;
+
+// Carregar a imagem do robalo
 function robalo(x, y) {
-
-  if (vel > 0) {
-    push();
-
-    // Scale -1, 1 means reverse the x axis, keep y the same.
-    scale(-1, 1);
-
-    // Because the x-axis is reversed, we need to draw at different x position.
-    image(img_robalo, -x, y, robalo_width, robalo_height);
-
-    pop();
-  } else {
-    image(img_robalo, x, y, robalo_width, robalo_height);
+  if (!isRobaloHidden) {
+    if (vel > 0) {
+      push();
+      scale(-1, 1);
+      image(img_robalo, -x, y, robalo_width, robalo_height);
+      pop();
+    } else {
+      image(img_robalo, x, y, robalo_width, robalo_height);
+    }
   }
+}
 
+// Function to hide the robalo
+function hideRobalo() {
+  isRobaloHidden = true;
 }
 

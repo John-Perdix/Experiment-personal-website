@@ -34,7 +34,7 @@ function preload() {
   img_robalo = loadImage('assets/robalo.png');
   //sketch4
   img_boia = loadImage('assets/boia.png');
-  sprite_sheet = loadImage('assets/swim-02.png');
+  afogado = loadImage('assets/swim-img-01.png');
 }
 
 //sketch1
@@ -78,6 +78,7 @@ function setup() {
   robalo_height = 100;
 
   //sketch4
+
   player = new Circle(width / 2, height / 2, 50, drawBoia); // Pass the drawing function
   enemy = new Circle(width / 4, height / 4, 30, drawEnemy);    // Pass a different drawing function
 }
@@ -95,7 +96,7 @@ class Circle {
     this.y = y;
     this.radius = radius;
     this.drawFunction = drawFunction;
-    this.speed = 2; // adjust the speed of the chasing circle
+    this.speed = 10; // adjust the speed of the chasing circle
   }
 
   move(targetX, targetY) {
@@ -122,32 +123,9 @@ function drawBoia(x, y, radius) {
 }
 
 function drawEnemy(x, y, radius) {
-  fill(255, 0, 0);
-  ellipse(x, y, radius * 2, radius * 2);
+  imageMode(CENTER);
+  image(afogado, x, y, radius * 3, radius * 3);
 }
-
-/*function draw(){
-  background(255);
-  fill(255,0,0);
-  circle(mouseX, mouseY, 25*2);
-
-  stroke(0);
-  circle(x_center-200, y_center, 100*2);
-  circle(x_center+200, y_center, 100*2);
-}*/
-
-/*function drawRect() {
-r = random();
-if (r<0.5){
-  blendMode(HARD_LIGHT);
-}else{
-  blendMode(BLEND);
-}
-
-fill(random);
-rect(200,400,100);
-  
-}*/
 
 var xoff = 0;
 var yoff = 0;
@@ -155,8 +133,6 @@ var increment = 0.01;
 var start_color, end_color;
 var animationSpeed = 0.08;
 var t = 0;
-
-/*const funcoes = [desenho1(), desenho2()];*/
 
 function draw() {
   desenho2();
@@ -259,4 +235,7 @@ function desenho2() {
 function mousePressed() {
   cor = color(random(255), random(255), random(255));
 }
+
+
+
 
