@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>João Perdiz</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+  <script src="libraries/quicksettings.js"></script>
+  <script src="libraries/p5.gui.js"></script>
+
+  <script async src="resize.js"></script>
+  <script src="https://kit.fontawesome.com/7099d2543c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div>
+      <h1>This is me</h1>
+      <h1>João Perdiz</h1>
+    </div>
+
+    <div class="link_script">
+      <h2><a href="#" onclick="changeScript('sketch1.js');">Designer multimédia</a></h2>
+      <h2><a href="#" onclick="changeScript('sketch2.js');">Surfer</a></h2>
+      <h2><a href="#" onclick="changeScript('sketch3.js');">Pescador de arpão</a></h2>
+      <h2><a href="#" onclick="changeScript('sketch4.js');">Nadador salvador</a></h2>
+    </div>
+  </div>
+
+  <div class="center" id="Div1">
+    <div class="hidden700">
+      <p>Desculpa, a experiencia está pensada para desktop</p>
+    </div>
+    <h1 id="para">
+
+    </h1>
+
+  </div>
+
+  <footer>
+    <div class="flex">
+      <div class="img-overlay">
+        <div class="padding-0">
+          <img src="/assets/IMG_7746.png" alt="Retrato">
+        </div>
+        <div id="instrucoes">
+          isto sao umas instrucoes quaisquer
+        </div>
+      </div>
+
+      <div class="redes">
+        <a href="https://www.linkedin.com/in/joão-perdiz/"><i class="fa-brands fa-linkedin"
+            style="color: #ffffff;"></i></a>
+        <a href="https://vimeo.com/user159784089"><i class="fa-brands fa-vimeo" style="color: #ffffff;"></i></a>
+        <a href="https://www.behance.net/perdix"><i class="fa-brands fa-square-behance" style="color: #ffffff;"></i></a>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script id="MyJavaScript" async src="sketch.js"></script>
+
+  <script>
+    function changeScript(newScript) {
+      var scriptElement = document.createElement('script');
+      scriptElement.src = newScript;
+      scriptElement.async = true;
+
+      scriptElement.onload = function () {
+        // Code to initialize your p5.js sketch, if needed
+
+      };
+
+
+      document.head.appendChild(scriptElement);
+    }
+  </script>
+</body>
+
+</html>
