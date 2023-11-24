@@ -2,6 +2,7 @@
 
 function draw() {
   createCanvas(windowWidth, windowHeight);
+  backgroundSet = false;
   document.getElementById('para').innerHTML = 'Tu és o mar!';
   document.getElementById('instrucoes').innerHTML = 'Anda com o rato para cima para baixo';
   background(54, 132, 232);

@@ -58,11 +58,11 @@ function setup() {
   document.getElementById('para').innerHTML = 'Clica no rato para mudar de cor';
   document.getElementById('instrucoes').innerHTML = 'Clica em qulquer com o rato lado para mudar a cor do efeito';
 
-
+/* 
   //sketch1
   slider = createSlider(1,20, 1);
   slider.position(windowWidth/2, 20);
-  slider.style('width', 'window');
+  slider.style('width', 'window'); */
 
   
   //sketch2
